@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 // import firebase libraries
 import firebase from 'firebase';
-import { Header } from './components/common';
+import { Header, Button } from './components/common';
 import LoginForm from './components/LoginForm';
 
 
@@ -12,6 +12,7 @@ import LoginForm from './components/LoginForm';
 // class based Component
 
 class App extends Component {
+  state = { loggedIn: false }
   // add lifecycle methods are methods that are authomatically called
   componentWillMount() {
     // coming from firebase web setup
@@ -23,14 +24,37 @@ class App extends Component {
       storageBucket: "authentication-62294.appspot.com",
       messagingSenderId: "1058894981956"
     });
-  }
-  render() {
+
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({ loggedIn: true });
+      } else {
+        this.setState({ loggedIn: false });
+      }
+    });
+}
+
+// HELPER
+renderContent() {
+  if (this.state.loggedIn) {
     return (
-      <View>
-        <Header headerText="Authentication" />
-        <LoginForm />
-        </View>
-    );
+      <Button>
+        Log Out
+      </Button>
+    ):
+  }
+
+  return <LoginForm />;
+}
+
+render() {
+  return (
+    <View>
+      <Header headerText="Authentication" />
+      {this.renderContent()}
+    </View>
+
+   );
   }
 }
 
