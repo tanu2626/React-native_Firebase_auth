@@ -1,27 +1,37 @@
 import React, { Component }from 'react';
-import { TextInput } from 'react-native';
-import { Button, Card, CardSection } from './common';
+import { Button, Card, CardSection, Input } from './common';
 
 // class based component
 class LoginForm extends Component {
   //state - used to have feedback from the user
   // Initialize the state object to have a single property
-  state = { text: '' };
+  state = { email: '', password: '' };
 
   render() {
     return (
       <Card>
         <CardSection>
-          <TextInput
+          <Input
+            placeholder="user@gmail.com"
+            label="Email"
             // add a prop called value
-            value={this.setState}
+            value={this.state.email}
             // add prop onChangeText, its a callback function with a fat arrow function
             // set the state with the text
-            onChangeText={text => this.setState({ text })}
-            style={{ height: 20, width: 100 }} />
+            onChangeText={email => this.setState({ email })}
+            />
         </CardSection>
 
-        <CardSection />
+        <CardSection>
+          <Input
+            secureTextEntry
+            placeholder="password"
+            label="Password"
+            value={this.state.password}
+            // password is arbitrary in onChangeText, we can rename anything
+            onChangeText={password => this.setState({ password })}
+            />
+        </CardSection>
 
         <CardSection>
           <Button>
