@@ -16,7 +16,6 @@ const Header = (props) => {
   );
 };
 
-
 // for styling each individual components
 const styles = {
   // To style View

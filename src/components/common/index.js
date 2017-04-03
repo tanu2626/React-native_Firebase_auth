@@ -2,9 +2,10 @@ export * from './Button';
 export * from './Card';
 export * from './CardSection';
 export * from './Header';
-// added a helper
 export * from './Input';
-export * from './Spinner'
+export * from './Spinner';
+
+// added helpers
 
 // EXPORT EVERYTHING FOR INDEX.JS
 //  bUT WE CANT USE DEFAULT

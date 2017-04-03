@@ -1,4 +1,4 @@
-import React from 'React';
+import React from 'react';
 import { TextInput, View, Text } from 'react-native';
 
 // functional component
@@ -16,7 +16,7 @@ const Input = ({ label, value, onChangeText, placeholder, secureTextEntry }) => 
         value={value}
         onChangeText={onChangeText}
       />
-     </View>
+    </View>
   );
 };
 
@@ -28,7 +28,7 @@ const styles = {
     paddingRight: 5,
     paddingLeft: 5,
     fontSize: 18,
-    LineHeight: 23,
+    lineHeight: 23,
     flex: 2
   },
   labelStyle: {
